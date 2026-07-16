@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Admin - Martin Luther Awuzah Portfolio</title>
+
+  <link href="file:///C:/Users/MartinLutherAwuzah/Downloads/Kelly-1.0.0/Kelly-1.0.0/assets/fg.png" rel="icon">
+  <link href="file:///C:/Users/MartinLutherAwuzah/Downloads/Kelly-1.0.0/Kelly-1.0.0/assets/fg.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/admin.css" rel="stylesheet">
+</head>
+
+<body class="admin-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Martin · Admin</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="index.html">View Site</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Login View -->
+    <section id="loginView" class="admin-section">
+      <div class="container">
+        <div class="admin-card admin-login">
+          <h2>Admin Login</h2>
+          <p class="admin-note">Sign in with the account you created in Supabase (Authentication → Users).</p>
+          <form id="loginForm">
+            <label>Email</label>
+            <input type="email" id="loginEmail" required placeholder="you@example.com">
+            <label>Password</label>
+            <input type="password" id="loginPassword" required placeholder="••••••••">
+            <button type="submit" class="admin-btn">Sign In</button>
+            <p id="loginMsg" class="admin-error"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin View -->
+    <section id="adminView" class="admin-section" style="display:none;">
+      <div class="container">
+        <div class="admin-toolbar">
+          <h2>Manage Projects</h2>
+          <div class="admin-toolbar-actions">
+            <button type="button" id="addBtn" class="admin-btn">+ Add New Project</button>
+            <button type="button" id="msgBtn" class="admin-btn">Messages</button>
+            <button type="button" id="logoutBtn" class="admin-btn secondary">Sign Out</button>
+          </div>
+        </div>
+
+        <p id="adminMsg" class="admin-error"></p>
+
+        <!-- Project Form -->
+        <form id="projectForm" class="admin-card" style="display:none;">
+          <h3 id="formTitle">New Project</h3>
+
+          <div id="formPreview" class="admin-preview">
+            <div class="ap-card">
+              <img id="apThumb" class="ap-thumb" src="" alt="" style="display:none;">
+              <span id="apCat" class="ap-cat">Category</span>
+              <h4 id="apTitle">Project Title</h4>
+              <p id="apSoft">Software used</p>
+              <p id="apDesc">Your project description will appear here as you type…</p>
+            </div>
+          </div>
+
+          <div class="admin-grid">
+            <div>
+              <label>Title *</label>
+              <input type="text" id="fTitle" required>
+            </div>
+            <div>
+              <label>Category *</label>
+              <select id="fCategory" required>
+                <option value="Photography">Photography</option>
+                <option value="Videography">Videography</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Web Design">Web Design</option>
+                <option value="Social Media Design">Social Media Design</option>
+                <option value="Print Design">Print Design</option>
+                <option value="3D Design">3D Design</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label>Completion Date</label>
+              <input type="date" id="fDate">
+            </div>
+            <div>
+              <label>Software Used (comma separated)</label>
+              <input type="text" id="fSoftware" placeholder="Photoshop, Illustrator">
+            </div>
+            <div>
+              <label>Technologies (comma separated)</label>
+              <input type="text" id="fTech" placeholder="Figma, Next.js">
+            </div>
+          </div>
+
+          <label>Project Description</label>
+          <textarea id="fDesc" rows="3"></textarea>
+
+          <label>My Design Process</label>
+          <textarea id="fProcess" rows="3"></textarea>
+
+          <label>Challenges</label>
+          <textarea id="fChallenges" rows="3"></textarea>
+
+          <label>Solution</label>
+          <textarea id="fSolution" rows="3"></textarea>
+
+          <label>Final Results</label>
+          <textarea id="fResults" rows="3"></textarea>
+
+          <div class="admin-grid">
+            <div>
+              <label>Thumbnail (single image)</label>
+              <input type="file" id="fThumb" accept="image/*">
+            </div>
+            <div>
+              <label>Gallery Images (multiple)</label>
+              <input type="file" id="fGallery" accept="image/*" multiple>
+            </div>
+            <div>
+              <label>Videos (MP4, MOV, WebM)</label>
+              <input type="file" id="fVideos" accept="video/*" multiple>
+            </div>
+            <div>
+              <label>Documents (PDF, ZIP)</label>
+              <input type="file" id="fDocs" accept=".pdf,.zip" multiple>
+            </div>
+          </div>
+
+          <div class="admin-form-actions">
+            <button type="submit" class="admin-btn">Save Project</button>
+            <button type="button" id="cancelBtn" class="admin-btn secondary">Cancel</button>
+          </div>
+        </form>
+
+        <!-- Project List -->
+        <div id="projectList" class="admin-list"></div>
+
+        <!-- Messages Inbox -->
+        <div id="messageList" class="admin-list" style="display:none;"></div>
+        <p id="msgMsg" class="admin-error" style="display:none;"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/admin-app.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
